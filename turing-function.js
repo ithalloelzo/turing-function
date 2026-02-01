@@ -25,6 +25,22 @@ function turingMachine(numeral_expression){
         calculation = num1 + num2
       break;
 
+      case "-":
+        calculation = num1 - num2
+      break;
+
+      case "*":
+        calculation = num1 * num2
+      break;
+
+      case "/":
+        calculation = num1 / num2
+      break;
+
+      case "%":
+        calculation = num1 % num2
+      break;
+
       default:
         console.log("Error")
     }
@@ -34,4 +50,4 @@ function turingMachine(numeral_expression){
   return result
 }
 
-console.log(turingMachine([1,"+",2,4,"+",8]))
+console.log(turingMachine([10,"%",3]))

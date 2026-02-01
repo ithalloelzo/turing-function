@@ -34,11 +34,21 @@ function turingMachine(numeral_expression){
       break;
 
       case "/":
-        calculation = num1 / num2
+        if(num2 == 0){
+          calculation = "Impossible to divide by 0"
+        }
+        else{
+          calculation = num1 / num2
+        }
       break;
 
       case "%":
-        calculation = num1 % num2
+        if(num2 == 0){
+          calculation = "Impossible to divide by 0"
+        }
+        else{
+          calculation = num1 % num2
+        }
       break;
 
       default:
@@ -50,4 +60,4 @@ function turingMachine(numeral_expression){
   return result
 }
 
-console.log(turingMachine([10,"%",3]))
+console.log(turingMachine([0,"%",2]))

@@ -1,5 +1,3 @@
-/*Usando o Javascript, desenvolva uma função que se baseie na máquina de Turing para conseguir realizar todas as operações matemáticas presente em um array e que retorne um array contendo os resultados.*/
-
 // Algoritmos permitidos: 
 /*+ Soma
 - Subtração
@@ -7,52 +5,50 @@
 * Multiplicação
 % Divisão com resto*/
 
-//[1, "+", 2] = 3
-//[1, "+", 2, 3, "*", 3]  = [3, 9]
-
-function turingMachine(numeral_expression){
+function turingMachine(numeral_expression) {
   let result = []
 
-  for(let i = 0; i < numeral_expression.length; i+=3){
+  for (let i = 0; i < numeral_expression.length; i += 3) {
 
     let num1 = numeral_expression[i]
-    let operator = numeral_expression[i+1]
-    let num2 = numeral_expression[i+2]
+    let operator = numeral_expression[i + 1]
+    let num2 = numeral_expression[i + 2]
     let calculation
 
-    switch (operator){
+
+    switch (operator) {
       case "+":
         calculation = num1 + num2
-      break;
+        break;
 
       case "-":
         calculation = num1 - num2
-      break;
+        break;
 
       case "*":
         calculation = num1 * num2
-      break;
+        break;
 
       case "/":
-        if(num2 == 0){
+        if (num2 == 0) {
           calculation = "Impossible to divide by 0"
         }
-        else{
+        else {
           calculation = num1 / num2
         }
-      break;
+        break;
 
       case "%":
-        if(num2 == 0){
+        if (num2 == 0) {
           calculation = "Impossible to divide by 0"
         }
-        else{
+        else {
           calculation = num1 % num2
         }
-      break;
+        break;
 
       default:
-        console.log("Error")
+        calculation = "Invalid Operator"
     }
     result.push(calculation)
   }
@@ -60,4 +56,4 @@ function turingMachine(numeral_expression){
   return result
 }
 
-console.log(turingMachine([0,"%",2]))
+console.log("Resultados:", turingMachine([0, "%", 0, 1, "+", 2, 3, "*", 4, 5, "-", 4, 4, "/", 2]))

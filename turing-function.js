@@ -5,6 +5,25 @@
 * Multiplicação
 % Divisão com resto*/
 
+//valida a divisão 
+function validationDivByZero(num1, num2){
+  if(num2 == 0){
+    return 'Impossible to divide by 0.'
+  }else{
+    return num1 / num2
+  }
+}
+
+//valida o módulo
+function validationModByZero(num1, num2){
+  if(num2 == 0){
+    return 'Impossible to divide by 0.'
+  }else{
+    return num1 % num2
+  }
+}
+
+//máquina de turing
 function turingMachine(numeral_expression) {
   let result = []
 
@@ -14,7 +33,6 @@ function turingMachine(numeral_expression) {
     let operator = numeral_expression[i + 1]
     let num2 = numeral_expression[i + 2]
     let calculation
-
 
     switch (operator) {
       case "+":
@@ -30,21 +48,11 @@ function turingMachine(numeral_expression) {
         break;
 
       case "/":
-        if (num2 == 0) {
-          calculation = "Impossible to divide by 0"
-        }
-        else {
-          calculation = num1 / num2
-        }
+        calculation = validationDivByZero(num1,num2)
         break;
 
       case "%":
-        if (num2 == 0) {
-          calculation = "Impossible to divide by 0"
-        }
-        else {
-          calculation = num1 % num2
-        }
+        calculation = validationModByZero(num1,num2)
         break;
 
       default:
@@ -56,4 +64,4 @@ function turingMachine(numeral_expression) {
   return result
 }
 
-console.log("Resultados:", turingMachine([0, "%", 0, 1, "+", 2, 3, "*", 4, 5, "-", 4, 4, "/", 2]))
+console.log("Resultados:", turingMachine([ 4, "/", 0]))
